@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { } from 'firebase/auth';
+import firebase from "firebase/compat/app"
+import "firebase/compat/auth"
 
 
 const firebaseConfig = {
@@ -12,6 +12,8 @@ const firebaseConfig = {
     measurementId: "G-11N1BKMF6S"
 };
 
+const app = firebase.initializeApp(firebaseConfig)
+
 
 export const auth = app.auth();
-export default app = initializeApp(firebaseConfig);
+export default app
