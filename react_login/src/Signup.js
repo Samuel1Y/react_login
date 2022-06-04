@@ -23,6 +23,16 @@ export default function Signup() {
             setError("")
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
+                .then((userCredentials) => {
+                    if (userCredentials.user) {
+                        userCredentials.user.updateProfile({
+                            displayName: nameRef.current.value
+                        })
+                    }
+                })
+                .catch(function (error) {
+                    alert(error.message);
+                });
         } catch {
             setError("Failed to create an account")
         }

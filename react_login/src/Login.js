@@ -8,7 +8,7 @@ export default function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
 
-    const { login, currentUser } = useAuth()
+    const { login, currentUser, logout } = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
 
@@ -26,9 +26,22 @@ export default function Login() {
         setLoading(false)
     }
 
+    async function handleLogOut() {
+        setError('')
+
+        try {
+            await logout()
+        } catch {
+            setError('Failed to Log out')
+        }
+    }
+
     return (
         <>
-            {currentUser.email}
+            <div className="text-center mb-5">
+            {currentUser && <h3> Hi { currentUser.displayName } </h3>}
+            {currentUser && <Button className="w-100" onClick={logout} >Log out</Button>}
+            </div>
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-5">Log In</h2>
