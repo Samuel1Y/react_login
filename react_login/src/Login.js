@@ -39,7 +39,7 @@ export default function Login() {
     return (
         <>
             <div className="text-center mb-5">
-            {currentUser && <h3> Hi { currentUser.displayName } </h3>}
+            {currentUser && <h3 style={{ backgroundColor: 'white' }}> Hi { currentUser.displayName } </h3>}
             {currentUser && <Button className="w-100" onClick={logout} >Log out</Button>}
             </div>
             <Card>
@@ -59,7 +59,7 @@ export default function Login() {
                     </Form>
                 </Card.Body>
             </Card>
-            <div className="w-100 text-center mt-2">
+            <div className="w-100 text-center mt-2" style={{ backgroundColor:'white' }}>
                 You don't have an account yet ? <Link to="/signup">Sign Up</Link>
             </div>
         </>
